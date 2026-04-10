@@ -1,0 +1,6 @@
+Q1: Options for writing to a file include out, which supports output operations, binary, which has operations performed in 
+binary rather than text, ate, which specifies that the output position should be at the start of the file, app, which
+specifies that the output should be appended in the file, and trunc, which completely wipes any content that exists in the 
+output file before writing to it. 
+
+Q2: The starting values are random integers. 

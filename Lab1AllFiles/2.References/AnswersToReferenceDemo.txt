@@ -1,0 +1,15 @@
+Q1: onePlus() receives an integer as an arguement and increments it by one. Because the function keeps its own
+local copy of the parameter's value, since the parameter is passed by value and as such, doesn't return that value, 
+the value in the main function remains unchanged. 
+
+Q2: refIncrement() recieves a reference of an integer as an arguement and increments it by one. Because 
+the parameter is passed by reference, the function doesn't have a local copy of that parameter. 
+As such, any changes to the reference changes the parameter's value outside the scope of the function, 
+as the reference accesses the same space in memory as the parameter's value.
+
+Q3: value() receives a constant string reference as an arguement. const in this context means the parameter also needs to be
+a constant value and can't be changed. 
+
+Q4: value() returns a reference for an integer. This is legal because the return statement is returning a global variable,
+so when the function is complete, the the return variable still exists. Applying the ++operator to the return value increments
+val by 1. 
