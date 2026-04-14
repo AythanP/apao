@@ -1,0 +1,18 @@
+1. BasicPointers
+Q: Consider the call to display2() in main(). What's wrong with the call?
+A: A pointer is being used in a parameter field that expects a reference.
+
+3. NewAndDelete:
+Q: In dynamicAlloc1(), the check of "a != nullptr" is unnecessary, why?
+A: 'a' cannot be a nullptr. If the 'new' succeeds, 'a' will point to a memory location. If the 'new' fails, the program will 
+crash and the rest of the function won't execute, thus the check is not necessary.
+Q: When calling dynamicAlloc3(), how do you know if if you should use "delete[] mem" or "delete mem"?
+A: The only way to know is through documentation. Otherwise, nobody knows.
+Q: When calling dynamicAlloc3(), what happens when "delete mem" is used?
+A: The program will compile with no errors, but will have a memory leak since only the memory space for the first element
+of the array is returned, not the whole array. 
+
+4. Arrays
+Q: How are the declarations of the arrays "set" and "set2" different than how they would be declared in Java?
+A: The brackets for set and set2 are immediately after the variable name, whereas in Java the brackets would be 
+immediately after the datatype. 
