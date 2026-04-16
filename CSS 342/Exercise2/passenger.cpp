@@ -22,7 +22,8 @@ class Passenger { // Passenger (as a class)
         void setName(const string& newName);
         string getName() const;
         // . . . other member functions
-    
+        MealType getMealPref() const;
+        string getFreqFlyerNo() const;
 };
 
 Passenger::Passenger(){
@@ -44,6 +45,12 @@ void Passenger::setName(const string& newName){
 }
 string Passenger::getName() const {
     return name;
+}
+MealType Passenger::getMealPref() const {
+    return mealPref;
+}
+string Passenger::getFreqFlyerNo() const {
+    return freqFlyerNo;
 }
 
 void Passenger::makeFrequentFlyer(const string& newFreqFlyerNo) {
@@ -70,6 +77,27 @@ int main(){
 
     // Exercise
     // Implement all accessor functions you think will be necessary and
+    string mealPref;
+    switch (pass.getMealPref()) {
+        case NO_PREF:
+            mealPref = "no preference";
+            break;
+        case REGULAR:
+            mealPref = "regular";
+            break;
+        case LOW_FAT:
+            mealPref = "low fat";
+            break;
+        case VEGETARIAN:
+            mealPref = "vegetarian";
+            break;
+        //default:
+            //cout << "Error: meal preference unable to be set" << endl;
+    }
+    cout << "Passenger name : " << pass.getName() << "\nMeal preference : " << mealPref << endl;
+    if (pass.isFrequentFlyer()) {
+        cout << "Frequent flyer number : " << pass.getFreqFlyerNo() << endl;;
+    }
 
     return EXIT_SUCCESS;
 }
