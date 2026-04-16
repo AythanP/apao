@@ -26,6 +26,15 @@ int main() {
     assignIntElements(arrayPtr2, size);
 
     compareArraysAddress(arrayPtr1, arrayPtr2);
+    for (int i = 0; i < size; i++) {
+        cout << arrayPtr1[i] << " ";
+    }
+    cout << endl;
+    for (int i = 0; i < size; i++) {
+        cout << arrayPtr2[i] << " ";
+    }
+    cout << endl;
+    cout << endl;
 
     swapMinArray(arrayPtr1, size, arrayPtr2, size);
     for (int i = 0; i < size; i++) {
@@ -61,6 +70,7 @@ void assignIntElements(int* array, int size) {
     cout << endl;
 }
 
+// without smaller random numbers, I have no clue if this works as intended
 void swapMinArray(int* array1, int size1, int* array2, int size2) {
     if (array1 == nullptr || array2 == nullptr) {
         cout << "One of the arrays is empty." << endl;
@@ -81,7 +91,6 @@ void swapMinArray(int* array1, int size1, int* array2, int size2) {
         }
     }
 
-    int temp = *array1;
-    *array1 = *array2;
-    *array2 = temp;
+    *array1 = min2;
+    *array2 = min1;
 }
