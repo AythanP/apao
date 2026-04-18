@@ -1,0 +1,5 @@
+Q: Try putting a SuperInt on the right-hand side of an assignment statement using theValue(). Does it work? Why?
+A: Yes, because the function is returning a value.
+
+Q: Try putting a SuperInt on the left-hand side of an assignment statement using theValue(). Does it work? Why?
+A: No, because the function returns a const, which can't be modifed by an assignment operator.

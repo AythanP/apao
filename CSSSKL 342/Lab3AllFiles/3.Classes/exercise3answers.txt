@@ -1,0 +1,5 @@
+Q: Is there a problem with the fact that SquareContainer.h defines two classes?
+A: No, there is not. The program will still compile, and the classes are related enough in function that it shoouldn't count as a violation of seperation of concerns. 
+
+Q: Can you put an implementation of a method inside a .h file in C++? What is the purpose of doing so?
+A: Yes. The purpose of doing so is to implement short functions that don't need to be in their own implementation file.

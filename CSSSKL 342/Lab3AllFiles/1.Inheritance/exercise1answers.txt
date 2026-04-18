@@ -1,0 +1,8 @@
+Q: What do you observe? 
+A: The child classes inherit the parent class's data members, and require a setter function to initialize those data members.
+They also call the parent class's parameterized constructor for invoking their own. 
+
+Q: How are the constructors and destructors invoked? In which order?
+A: The constructors are invoked from base class to derivative class, while the destructors are invoked from 
+derivative class to base class. Each derivative class invokes the constructor in the base class first, down to the
+derivative class. Oppositely, each derivative class invokes the deconstructor in itself first, up to the base class. 
