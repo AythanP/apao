@@ -1,0 +1,41 @@
+Exercise1:
+Q: Look at the code; do you think that MyClass::operator=() is doing a deep or shallow copy?
+A: Deep copy because the operator is user-defined to create a new integer pointer that copies "other"'s 
+data values, not its memory address. The primitive types and the string are copied by value, meaning that changing them 
+won't change "other"'s data members. 
+
+Q: Do you notice any warning posted by the compiler? Is there a memory leak issue? How can you fix it?
+A: The compiler has no warnings. There is a memory leak issue in the overloaded operator. To fix the leak, 
+the pointer needs to be freed and set to nullptr before copy() can be called. 
+
+Q: Is MyClass::setIp() implemented correctly? What exactly does it do?
+A: No, it's not implemented correctly because it changes the value accessed by the pointer, not the pointer itself. 
+
+Exercise3:
+Q: Look at the code in IteratorTest.cpp. What do you think it does? 
+Compile the code (do you need to do anything "unusual" to get it to compile?) and run it. Does it do what you think it would?
+A: I think the .cpp file initializes the iterator to start at the beginning of mc's 2D array, then iterates to the end. It sets each
+element until that point with i's value. Next, a new iterator is initialized in a for loop, also starting at the beginning 
+and going until it reaches the end. For each element, the iterator is dereferenced, and the contents of that element are printed out.
+
+In order to compile the code, "#pragma once" or "#ifndef...", "#define...", and "#endif" need to be declared, although the compiler throws a warning
+if "#pragma once" is used. 
+
+IteratorTest.cpp runs basically as I described, except I neglected to mention that it prints a new line after printing an element's contents. 
+
+Q: Why do the iterator increment operators return an iterator? How do the two increment operators differ? 
+Is the iterator they return allocated dynamically, auto, or something else?
+A: The increment oeprators return an iterator because it contains the index location of the 2D array, so returning it, especially by dereferencing,
+makes the iterator act like a pointer and thus allows accesss into that array. The 2 increment operators differ in that prefix one updates the iterator's
+location before returning it, while the postfix one, though also updating the iterator's location, returns the location before the update. 
+Both prefixes are returning a copy of the iterator, as declared in the .h file, and because neither overload contains a reference as their return type. 
+
+Q: Change SquareContainer::iterator::operator*() so that it is a const method. What is this supposed to mean? 
+What happens when you try to compile and run the program? Does this appear to be consistent with the declaration of that operator as const? 
+Why or why not? In your opinion, should that operator be declared const?
+A: SquareContainer::iterator::operator*() becoming a const method means that its return type is now a reference to a constant value. 
+There are no problems compiling the program, but it won't run because in the IteratorTest.cpp file, the first loop is trying to change the value
+accessed by an iterator using the dereferencing operator. This is a problem because the value is now constant thanks to the dereferencing operator, so it 
+can't be changed and also remains consistent with the operator's delcaration being const. I don't believe that operator should be delcared const because
+one of the major points of dereferncing is to modify that element. const would defeat the purpose of that operator. Instead, the iterator should be 
+overloaded as a constant for read-only operations. 

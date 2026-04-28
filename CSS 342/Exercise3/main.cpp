@@ -42,4 +42,8 @@ int main() {
     test3.printInfo();
 
     cout << "product of test2 by test3: " << dot << endl;
+
+    test3.setX(3);
+    cout << "New test3 values: " << endl;
+    test3.printInfo();
 }
