@@ -13,15 +13,11 @@ LinkedList<ItemType>::LinkedList() : headPtr( nullptr), itemCount(0){
 
 template <typename ItemType>
 LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& aList){
+    this.clear();
     itemCount = aList.itemCount;
     for (int i = 1; i <= itemCount; i++) {
         this.insert(i, aList.getEntry(i));
     }
-}
-
-template <typename ItemType>
-LinkedList<ItemType>::~LinkedList() {
-    clear();
 }
 
 template <typename ItemType>
@@ -151,70 +147,6 @@ void LinkedList<ItemType>::printList() const {
         current = current->getNext();
     }
     std::cout << std::endl;
-}
-
-template <typename ItemType>
-void LinkedList<ItemType>::printListRecursive() const {
-    printListRecursiveHelper(headPtr);
-}
-
-template <typename ItemType>
-void LinkedList<ItemType>::printListRecursiveHelper(const Node<ItemType>* headPtr) const {
-    if (!isEmpty()) {
-        std::cout << headPtr->getItem() << std::endl;
-        if (headPtr->getNext() != nullptr) {
-            printListRecursiveHelper(headPtr->getNext());
-        }
-    }
-    return;
-}
-
-template <typename ItemType>
-ItemType LinkedList<ItemType>::findValueRecursive(const ItemType& value) const {
-    return findValueRecursiveHelper(headPtr, value, 0);
-}
-
-template <typename ItemType>
-ItemType LinkedList<ItemType>::findValueRecursiveHelper(const Node<ItemType>* currPtr, const ItemType& value, int position) const {
-    if (currPtr == nullptr) {
-        return -1;
-    } else if (currPtr->getItem() == value) {
-        return position;
-    }
-    return findValueRecursiveHelper(currPtr->getNext(), value, ++position);
-}
-
-template <typename ItemType>
-void LinkedList<ItemType>::printListReverseRecursive() const {
-    printListReverseRecursiveHelper(headPtr);
-}
-
-template <typename ItemType>
-void LinkedList<ItemType>::printListReverseRecursiveHelper(const Node<ItemType>* headPtr) const {
-    if (headPtr == nullptr) {
-        return;
-    }
-    if (headPtr->getNext() == nullptr) {
-        std::cout << headPtr->getItem() << std::endl;
-        return;
-    } 
-    printListReverseRecursiveHelper(headPtr->getNext());
-    std::cout << headPtr->getItem() << std::endl;
-    return;
-}
-
-template <typename ItemType>
-Node<ItemType>* LinkedList<ItemType>::reverseInPlace(Node<ItemType>* curPtr) {
-    Node<ItemType> newHead;
-    if (currPtr == nullptr || curPtr->getNext() == nullptr) {
-        return curPtr;
-    }
-    newHead = reverseInPlace(curPtr->getNext());
-
-    curPtr->getNext()->setNext(curPtr);
-    curPtr->setNext(nullptr);
-
-    return newHead;
 }
 
 #endif

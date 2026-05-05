@@ -10,14 +10,11 @@ class LinkedList{
         Node<ItemType>* headPtr;
         int itemCount;
         Node<ItemType>* getNodeAt( int position) const;
-        void printListRecursiveHelper(const Node<ItemType>* headPtr) const;
-        ItemType findValueRecursiveHelper(const Node<ItemType>* currPtr, const ItemType& value, int position) const;
-        void printListReverseRecursiveHelper(const Node<ItemType>* headPtr) const;
 
     public:
         LinkedList();
         LinkedList(const LinkedList<ItemType>& aList);
-        ~LinkedList();
+        // ~LinkedList();
     
         bool isEmpty() const;
         int getLength() const;
@@ -27,10 +24,7 @@ class LinkedList{
         ItemType getEntry(int position) const;
         void setEntry(int position, const ItemType& newEntry);
         void printList() const;
-        void printListRecursive() const;
-        ItemType findValueRecursive(const ItemType& value) const;
-        void printListReverseRecursive() const;
-        Node<ItemType>* reverseInPlace(Node<ItemType>* curPtr);
+
 };
 
 #include "linkedlist.cpp"
