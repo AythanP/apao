@@ -209,9 +209,12 @@ Node<ItemType>* LinkedList<ItemType>::reverseInPlace(Node<ItemType>* curPtr) {
     if (currPtr == nullptr || curPtr->getNext() == nullptr) {
         return curPtr;
     }
+    // new head points to the tail
     newHead = reverseInPlace(curPtr->getNext());
 
+    // set the node you point to to point to yourself
     curPtr->getNext()->setNext(curPtr);
+    // set yourself to point to null to act as the new tail
     curPtr->setNext(nullptr);
 
     return newHead;
