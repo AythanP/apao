@@ -206,7 +206,7 @@ void LinkedList<ItemType>::printListReverseRecursiveHelper(const Node<ItemType>*
 template <typename ItemType>
 Node<ItemType>* LinkedList<ItemType>::reverseInPlace(Node<ItemType>* curPtr) {
     Node<ItemType> newHead;
-    if (currPtr == nullptr || curPtr->getNext() == nullptr) {
+    if (curPtr == nullptr || curPtr->getNext() == nullptr) {
         return curPtr;
     }
     // new head points to the tail

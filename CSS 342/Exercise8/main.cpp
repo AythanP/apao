@@ -22,7 +22,7 @@ int main() {
 
     ListQueue<int> test2 = ListQueue<int>();
     removeSuccessful = test2.dequeue();
-    cout << removeSuccessful << endl;
+    cout << removeSuccessful << endl << endl;
     for (int i = 0; i < 10; i++) {
         bool addSuccessful = test2.enqueue(i);
         cout << addSuccessful << endl;

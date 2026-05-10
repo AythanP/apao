@@ -4,7 +4,7 @@
 #include "array_queue.h" // Header file
 
 template <typename ItemType>
-ArrayQueue<ItemType>::ArrayQueue() : front(0), back(MAX_QUEUE - 1){
+ArrayQueue<ItemType>::ArrayQueue() : front(0), back(0){
 } // end default constructor
 
 template <typename ItemType>
@@ -17,7 +17,7 @@ bool ArrayQueue<ItemType>::enqueue( const ItemType& newEntry){
     bool result = false;
     if ((back + 1) % (MAX_QUEUE + 1) != front){
         // Queue has room for another item
-        back = (back + 1) % MAX_QUEUE;
+        back = (back + 1) % (MAX_QUEUE + 1);
         items[back] = newEntry;
         result = true ;
     } // end if
@@ -28,7 +28,7 @@ template <typename ItemType>
 bool ArrayQueue<ItemType>::dequeue(){
     bool result = false ;
     if (!isEmpty()){
-        front = (front + 1) % MAX_QUEUE;
+        front = (front + 1) % (MAX_QUEUE + 1);
         result = true ;
     } // end if
     return result;
@@ -42,7 +42,7 @@ ItemType ArrayQueue<ItemType>::peekFront() const {
         throw "peekFront() called with empty queue";
     }    
     // Queue is not empty; return front
-    return items[front];
+    return items[(front + 1) % (MAX_QUEUE + 1)];
 } // end peekFront
 
 #endif

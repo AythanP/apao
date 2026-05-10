@@ -48,25 +48,29 @@ ItemType ArrayStack<ItemType>::peek() const{
 } // end peek
 // end of implementation file
 
-// TODO: fix this
+// TODO: fix this. Maybe use an iterator? For arrays, it can be a for loop, for lists it can be a while loop. 
+// push to a new stack and don't need to copy the original one?
 template < class ItemType>
 bool ArrayStack<ItemType>::paranthesisMatch() {
-    ArrayStack<ItemType> oldTemp(this);
-    ArrayStack<ItemType> newTemp(MAX_STACK);
-    while (!oldTemp.isEmpty()) {
-        ItemType element = oldTemp.peek();
-        if (element == '(' || element == '[' || element == '{') {
-            newTemp.push(element);
-        } else if (element == ')' || element == ']' || element == '}') {
-            if (newTemp.isEmpty()) {
+    ArrayStack<ItemType> comparison = ArrayStack<ItemType>();
+    for (int i = 0; i < MAX_STACK; i++) {
+        if (items[i] == '(' || items[i] == '[' || items[i] == '{') {
+            comparison.push(items[i]);
+        } else if (items[i] == ')' || items[i] == ']' || items[i] == '}') {
+            if (comparison.isEmpty()) {
                 return false;
             } else {
-                newTemp.pop();
+                if (items[i] == ')' && comparison.peek() == '(') {
+                    comparison.pop();
+                } else if (items[i] == ']' && comparison.peek() == '[') {
+                    comparison.pop();
+                } else if (items[i] == '}' && comparison.peek() == '{') {
+                    comparison.pop();
+                }
             }
         }
-        oldTemp.pop();
     }
-    if (newTemp.isEmpty()) {
+    if (comparison.isEmpty()) {
         return true;
     } else {
         return false;

@@ -7,8 +7,6 @@ template <typename ItemType>
 class ListQueue{
     private :
         LinkedList<ItemType>* listPtr; // Pointer to list of queue items
-        Node<ItemType>* frontPtr;
-        Node<ItemType>* backPtr;
     public :
         ListQueue();
         ListQueue(const ListQueue& aQueue);

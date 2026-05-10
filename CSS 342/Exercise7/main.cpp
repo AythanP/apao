@@ -22,6 +22,6 @@ int main() {
         test1.pop();
     }
     */
-   bool boolTest = test1.paranthesisMatch();
-   cout << boolTest << endl;
+   bool balancedMath = test1.paranthesisMatch();
+   cout << "Expression is balanced: " << balancedMath << endl;
 }
