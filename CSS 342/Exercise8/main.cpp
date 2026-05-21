@@ -11,22 +11,23 @@ int main() {
     for (int i = 0; i < 50; i++) {
         // TODO: enqueue doesn't work
         bool addSuccessful = test1.enqueue(i);
-        cout << addSuccessful << endl;
+        cout << addSuccessful << " ";
     }
-    cout << endl;
+    cout << endl << endl;
     bool addSuccessful = test1.enqueue(51);
     cout << addSuccessful << endl << endl;
 
     int value = test1.peekFront();
-    cout << value << endl;
+    cout << value << endl << endl;
 
     ListQueue<int> test2 = ListQueue<int>();
     removeSuccessful = test2.dequeue();
     cout << removeSuccessful << endl << endl;
     for (int i = 0; i < 10; i++) {
         bool addSuccessful = test2.enqueue(i);
-        cout << addSuccessful << endl;
+        cout << addSuccessful <<  " ";
     }
+    cout << endl << endl;
     int value2 = test2.peekFront();
     cout << value2 << endl;
 }

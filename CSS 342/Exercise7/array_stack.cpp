@@ -51,9 +51,9 @@ ItemType ArrayStack<ItemType>::peek() const{
 // TODO: fix this. Maybe use an iterator? For arrays, it can be a for loop, for lists it can be a while loop. 
 // push to a new stack and don't need to copy the original one?
 template < class ItemType>
-bool ArrayStack<ItemType>::paranthesisMatch() {
+bool ArrayStack<ItemType>::paranthesesMatch() {
     ArrayStack<ItemType> comparison = ArrayStack<ItemType>();
-    for (int i = 0; i < MAX_STACK; i++) {
+    for (int i = 0; i <= top; i++) {
         if (items[i] == '(' || items[i] == '[' || items[i] == '{') {
             comparison.push(items[i]);
         } else if (items[i] == ')' || items[i] == ']' || items[i] == '}') {
@@ -66,6 +66,8 @@ bool ArrayStack<ItemType>::paranthesisMatch() {
                     comparison.pop();
                 } else if (items[i] == '}' && comparison.peek() == '{') {
                     comparison.pop();
+                } else {
+                    return false;
                 }
             }
         }

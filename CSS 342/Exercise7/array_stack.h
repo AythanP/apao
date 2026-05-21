@@ -15,7 +15,7 @@ class ArrayStack{
         bool push(const ItemType& newEntry);
         bool pop();
         ItemType peek() const ;
-        bool paranthesisMatch();
+        bool paranthesesMatch();
 }; // end ArrayStack
 
 #include "array_stack.cpp"
