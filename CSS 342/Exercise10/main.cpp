@@ -12,8 +12,9 @@ void populateVector(vector<ItemType>& vector);
 template <typename ItemType>
 void printVector(vector<ItemType>& vector);
 
-static random_device generator;
-static uniform_int_distribution<int> distribution(1, 1000);
+random_device rd;
+default_random_engine generator(rd());
+uniform_int_distribution<int> distribution(1, 1000);
 
 int main() {
     int length = distribution(generator);
