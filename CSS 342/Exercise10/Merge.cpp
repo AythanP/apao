@@ -7,7 +7,8 @@ void mergeSort(vector<ItemType>& vector, int beginning, int end);
 template <typename ItemType>
 void merge(vector<ItemType>& vector, int beginning, int middle, int end);
 
-// merge sort a vector from index beginning to index end
+// Merge sort a vector from a beginning to and ending index
+// To sort an entire vector, go from 0 to vector.size() - 1
 template <typename ItemType>
 void mergeSort(vector<ItemType>& vector, int beginning, int end) {
     if (beginning < end) {
@@ -36,7 +37,7 @@ void merge(vector<ItemType>& vector, int beginning, int middle, int end) {
 
     // Merge the temp vectors back into the original vector, from beginning to end, making sure the values are sorted
     while (i < leftVectorLength && j < rightVectorLength) {
-        if (left.at(i) < right.at(j)) {
+        if (left.at(i) <= right.at(j)) {
             vector.at(index) = left.at(i);
             i++;
         } else {
