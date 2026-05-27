@@ -16,7 +16,7 @@ LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& aList){
     this.clear();
     itemCount = aList.itemCount;
     for (int i = 1; i <= itemCount; i++) {
-        this.insert(i, aList.getEntry(i));
+        this->insert(i, aList.getEntry(i));
     }
 }
 

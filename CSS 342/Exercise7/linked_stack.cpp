@@ -12,7 +12,7 @@ LinkedStack<ItemType>::LinkedStack() : topPtr( nullptr ){
 template < class ItemType>
 LinkedStack<ItemType>::LinkedStack(const LinkedStack<ItemType>& aStack){
     // Point to nodes in original chain
-    Node<ItemType>* origChainPtr = aStack->topPtr;
+    Node<ItemType>* origChainPtr = aStack.topPtr;
     if (origChainPtr == nullptr )
         topPtr = nullptr; // Original bag is empty
     else{
