@@ -19,7 +19,7 @@ void printResultsComplex(vector<ItemType> vector, void (*sortingFunction)(std::v
 
 random_device rd;
 default_random_engine generator(rd());
-uniform_int_distribution<int> distribution(1, 11);
+uniform_int_distribution<int> distribution(1, 563);
 
 int main() {
     int length = distribution(generator);

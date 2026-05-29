@@ -27,7 +27,7 @@ int partition(vector<ItemType>& vector, int beginning, int end) {
 
     // move all elements smaller than the pivot to the left half of the vector
     for (int i = beginning; i < end; i++) {
-        if (vector[i] <= pivot) {
+        if (vector[i] < pivot) {
             leftIndex++;
             swap(vector[leftIndex], vector[i]);
         }
